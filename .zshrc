@@ -4,6 +4,8 @@ export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH="$HOME/.npm-packages/bin:$PATH"
 
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
