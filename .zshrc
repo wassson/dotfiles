@@ -20,16 +20,14 @@ bi_gem ()
   gem install ./"$1"-"$2".gem
 }
 
-# pnpm
 export PNPM_HOME="/Users/austinwasson/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
 
 export LAUNCH_DARKLY_AUTH_TOKEN=
-export PLATFORM_SERVICES_LAUNCH_DARKLY_SDK_KEY=sdk-16adb685-38e1-4604-8302-5a9d0e30cd87
-export MAILOSAUR_API_KEY=twUmCghWZoXMpXaRSkBPeu0sW2mzui2S
+export PLATFORM_SERVICES_LAUNCH_DARKLY_SDK_KEY=
+export MAILOSAUR_API_KEY=
 
-export NPM_TOKEN="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"
+export NPM_TOKEN=
 
 export SST_STAGE="awasson"
 export SST_REGION="us-east-1"
