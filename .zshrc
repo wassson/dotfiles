@@ -1,42 +1,74 @@
-# Custom functions
-nd() {
-    mkdir "$1" && cd "$1"
+export PATH="$PATH:/opt/homebrew/bin/"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH=~/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
+export PATH="$HOME/.npm-packages/bin:$PATH"
+
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+nd ()
+{
+  mkdir -p -- "$1" &&
+  cd -P -- "$1"
 }
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+bi_gem ()
+{
+  gem build "$1"
+  gem install ./"$1"-"$2".gem
+}
 
-# Platform
+# pnpm
+export PNPM_HOME="/Users/austinwasson/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
 export LAUNCH_DARKLY_AUTH_TOKEN=
-export PLATFORM_SERVICES_LAUNCH_DARKLY_SDK_KEY=
-export MAILOSAUR_API_KEY=
-export NPM_TOKEN=
-export SST_STAGE=
+export PLATFORM_SERVICES_LAUNCH_DARKLY_SDK_KEY=sdk-16adb685-38e1-4604-8302-5a9d0e30cd87
+export MAILOSAUR_API_KEY=twUmCghWZoXMpXaRSkBPeu0sW2mzui2S
+
+export NPM_TOKEN="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"
+
+export SST_STAGE="awasson"
 export SST_REGION="us-east-1"
-export SST_PROFILE=
+export SST_PROFILE="awasson"
 export SST_TELEMETRY_DISABLED="1"
+
 export SST_SOURCE_STAGE=global
 export SST_SOURCE_PROFILE=shop-ware-dev
 export SST_DEST_STAGE=global
 
-# SW
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# Alias
-alias co="code ."
+alias bd="./bin/dev"
+alias bef="bundle exec rspec --tag focus"
+alias ber="bundle exec rspec"
+alias clean-schema="chmod +x ./script/api/clean_schema.sh && ./script/api/clean_schema.sh"
+alias co="git checkout"
+alias cob="git checkout -b"
+alias cur="cursor ."
 alias cr="cargo run"
+alias del="git branch -D"
+alias dockerstop="ps ax|grep -i docker|egrep -iv 'grep|com.docker.vmnetd'|awk '{print $1}'|xargs kill"
 alias fore="foreman start -f Procfile.dev"
+alias gitcache="git rm -rf --cached ."
+alias oll="ollama run mistral"
+alias lap="chmod +x ./window_manager_laptop.sh && ./window_manager_laptop.sh"
+alias masterkey="c82e896b9e005e2ece32e2297b643f7f"
 alias migrate="bundle exec rails db:migrate"
 alias mine="open -a rubymine"
+alias mon="chmod +x ./window_manager_monitor.sh && ./window_manager_monitor.sh"
+alias prisma-migrate="npx prisma migrate dev --name"
+alias prisma-status="npx prisma migrate dev --preview-feature"
+alias studio="npx prisma studio"
 alias stopredis="redis-cli shutdown"
+alias sup="./vendor/bin/sail up"
 alias svon="pnpm run dev -- --open"
 
-# pnpm
-export PNPM_HOME="/Users/austinwasson/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+alias .m="./main"
+
 # bun completions
 [ -s "/Users/austinwasson/.bun/_bun" ] && source "/Users/austinwasson/.bun/_bun"
 
