@@ -50,6 +50,16 @@ else
     brew install helix
 fi
 
+# Install Neovim
+if command -v nvim >/dev/null 2>&1; then
+    echo "Neovim already installed: $(nvim --version | head -1)"
+elif brew list neovim >/dev/null 2>&1; then
+    echo "Neovim already installed via Homebrew"
+else
+    echo "Installing Neovim..."
+    brew install neovim
+fi
+
 # Install tools with Mise
 echo "Installing latest Rust, Node, and Bun with Mise..."
 mise install

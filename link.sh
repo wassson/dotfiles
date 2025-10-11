@@ -11,6 +11,9 @@ esac
 
 echo "Symlinking dotfiles for $OS..."
 
+# Include dotfiles in globs
+shopt -s dotglob
+
 # Symlink helper
 link(){
   mkdir -p "$(dirname "$2")"
@@ -19,12 +22,12 @@ link(){
 
 # Symlink common & OS-specific dotfiles
 for f in home/common/*; do
-  if [ -e "$f" ]; then
+  if [ -f "$f" ] && [[ "$(basename "$f")" != ".DS_Store" ]]; then
     link "$f" "$HOME/$(basename "$f")"
   fi
 done
 for f in home/$OS_DIR/*; do
-  if [ -e "$f" ]; then
+  if [ -f "$f" ] && [[ "$(basename "$f")" != ".DS_Store" ]]; then
     link "$f" "$HOME/$(basename "$f")"
   fi
 done
@@ -32,14 +35,14 @@ done
 # Symlink .config files
 if [ -d "home/common/.config" ]; then
   for f in home/common/.config/*; do
-    if [ -e "$f" ]; then
+    if [ -e "$f" ] && [[ "$(basename "$f")" != ".DS_Store" ]]; then
       link "$f" "$HOME/.config/$(basename "$f")"
     fi
   done
 fi
 if [ -d "home/$OS_DIR/.config" ]; then
   for f in home/$OS_DIR/.config/*; do
-    if [ -e "$f" ]; then
+    if [ -e "$f" ] && [[ "$(basename "$f")" != ".DS_Store" ]]; then
       link "$f" "$HOME/.config/$(basename "$f")"
     fi
   done
