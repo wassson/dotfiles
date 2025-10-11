@@ -1,0 +1,6 @@
+name = "rpm"
+inherits = "rose_pine"
+
+"constant.numberic" = "foam"
+"string.special.symbol" = "pine"
+"punctuation" = "love"

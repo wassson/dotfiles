@@ -1,0 +1,18 @@
+inherits = "gruvbox_dark_hard"
+green = "#89B482"
+background = "#121212"
+
+# string = { fg = "#89B482" }
+function = { fg = "#89B482" }
+
+"ui.background" = { bg = "bg0" }
+
+# tab text color
+"ui.bufferline.background" = "#111"
+# inactive tab background color
+"ui.bufferline" = { bg = "bg0" }
+"ui.statusline" = { bg = "bg0" }
+
+[palette]
+bg0 = "#131315"
+gray = "#505050"

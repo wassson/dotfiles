@@ -1,0 +1,63 @@
+# theme = "a_github"
+# theme = "a_gruvbox"
+# theme = "wasson"
+# theme = "rose_pine"
+# theme = "rose_pine_moon"
+theme = "gruvbox_dark_hard"
+# theme = "rpm"
+# theme = "jetbrains"
+# theme = "kaolin-dark"
+# theme = "duskfox"
+# theme = "terafox"
+
+[editor.gutters]
+layout = ["spacer", "line-numbers", "spacer", "diff", "spacer", "spacer"]
+
+[keys.normal]
+a = ["move_char_right", "insert_mode"]
+"left" = ":buffer-previous"
+"right" = ":buffer-next"
+C-h = ":buffer-previous"
+C-l = ":buffer-next"
+"S-up" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"S-down" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+"S-h" = ["goto_line_start"]
+"S-l" = ["goto_line_end"]
+"S-b" = ":buffer-close"
+
+[keys.normal.space]
+# m = ":write"
+
+[keys.insert]
+j = { k = "normal_mode" }
+C-h = "signature_help"
+
+[keys.select]
+"S-up" = ["goto_line_end","extend_line_below",  "delete_selection", "move_line_up", "paste_before", "select_mode"]
+"S-down" = ["goto_line_end","extend_line_below",  "delete_selection", "paste_after", "select_mode" ]
+
+[editor]
+bufferline = "always"
+cursorline = true
+mouse = true
+
+[editor.auto-save]
+after-delay.enable = true
+after-delay.timeout = 1000
+
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.lsp]
+auto-signature-help = false
+display-messages = true
+# display-inlay-hints = true
+
+# [editor.inline-diagnostics]
+# cursor-line = "hint"
+# other-lines = "error"
+
+[editor.statusline]
+diagnostics = ["error", "hint", "warning"]
+workspace-diagnostics = ["warning", "hint", "error"]

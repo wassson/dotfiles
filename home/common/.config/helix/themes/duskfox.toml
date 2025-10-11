@@ -1,0 +1,193 @@
+name = "duskfox"
+
+# Duskfox theme for Helix editor
+# Converted from Zed theme
+
+# Duskfox theme for Helix editor
+# Converted from Zed theme
+
+# UI colors
+"ui.background" = "bg_primary"
+"ui.background.separator" = "bg_tertiary"
+"ui.cursor" = "fg_primary"
+"ui.cursor.normal" = "fg_primary"
+"ui.cursor.insert" = "fg_primary"
+"ui.cursor.select" = "fg_primary"
+"ui.cursor.match" = "bg_element"
+"ui.cursor.primary" = "fg_primary"
+"ui.cursor.secondary" = "fg_secondary"
+"ui.cursorline.primary" = "bg_selection"
+"ui.cursorline.secondary" = "bg_selection"
+"ui.selection" = "bg_selection"
+"ui.selection.primary" = "bg_selection"
+"ui.linenr" = "fg_secondary"
+"ui.linenr.selected" = "fg_editor"
+"ui.statusline" = { fg = "fg_primary", bg = "bg_secondary" }
+"ui.statusline.inactive" = { fg = "fg_secondary", bg = "bg_secondary" }
+"ui.statusline.normal" = { fg = "fg_primary", bg = "bg_secondary" }
+"ui.statusline.insert" = { fg = "fg_primary", bg = "bg_secondary" }
+"ui.statusline.select" = { fg = "fg_primary", bg = "bg_secondary" }
+"ui.bufferline" = { fg = "fg_secondary", bg = "bg_secondary" }
+"ui.bufferline.active" = { fg = "fg_primary", bg = "bg_tertiary" }
+"ui.bufferline.background" = "bg_secondary"
+"ui.popup" = { fg = "fg_primary", bg = "bg_primary" }
+"ui.popup.info" = { fg = "fg_primary", bg = "bg_primary" }
+"ui.window" = "bg_tertiary"
+"ui.help" = { fg = "fg_primary", bg = "bg_primary" }
+"ui.text" = "fg_primary"
+"ui.text.focus" = "fg_primary"
+"ui.text.inactive" = "fg_secondary"
+"ui.text.info" = "fg_primary"
+"ui.virtual" = "fg_secondary"
+"ui.virtual.ruler" = "bg_tertiary"
+"ui.virtual.whitespace" = "fg_secondary"
+"ui.virtual.indent-guide" = "bg_tertiary"
+"ui.virtual.inlay-hint" = "fg_secondary"
+"ui.menu" = { fg = "fg_primary", bg = "bg_primary" }
+"ui.menu.selected" = { fg = "fg_primary", bg = "bg_selection" }
+"ui.menu.scroll" = { fg = "fg_primary", bg = "bg_selection" }
+
+# Diagnostic colors
+"error" = "red"
+"warning" = "yellow"
+"info" = "blue"
+"hint" = "gray_hint"
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.info" = { underline = { color = "blue", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "gray_hint", style = "curl" } }
+
+# Diff colors
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "yellow"
+
+# Syntax highlighting
+"type" = "orange"
+"type.builtin" = "orange"
+"type.parameter" = "orange"
+"type.enum" = "orange"
+"type.enum.variant" = "orange"
+
+"constructor" = "purple"
+"constructor.builtin" = "purple"
+
+"constant" = "orange"
+"constant.builtin" = "orange"
+"constant.builtin.boolean" = "orange"
+"constant.character" = "orange"
+"constant.character.escape" = "green"
+"constant.numeric" = "orange"
+"constant.numeric.integer" = "orange"
+"constant.numeric.float" = "orange"
+
+"string" = "green"
+"string.regexp" = "green"
+"string.special" = "green"
+"string.special.path" = "green"
+"string.special.url" = "green"
+"string.special.symbol" = "green"
+
+"comment" = "gray_comment"
+"comment.line" = "gray_comment"
+"comment.block" = "gray_comment"
+"comment.block.documentation" = "gray_comment"
+
+"variable" = "fg_variable"
+"variable.builtin" = "fg_variable"
+"variable.parameter" = "fg_variable"
+"variable.other" = "fg_variable"
+"variable.other.member" = "cyan_bright"
+
+"label" = "purple_bright"
+
+"punctuation" = "gray"
+"punctuation.delimiter" = "gray"
+"punctuation.bracket" = "gray"
+"punctuation.special" = "gray"
+
+"keyword" = "purple_bright"
+"keyword.control" = "purple_bright"
+"keyword.control.conditional" = "purple_bright"
+"keyword.control.repeat" = "purple_bright"
+"keyword.control.import" = "purple_bright"
+"keyword.control.return" = "purple_bright"
+"keyword.control.exception" = "purple_bright"
+"keyword.operator" = "purple_operator"
+"keyword.directive" = "purple_bright"
+"keyword.function" = "purple_bright"
+"keyword.storage" = "purple_bright"
+"keyword.storage.type" = "purple_bright"
+"keyword.storage.modifier" = "purple_bright"
+
+"operator" = "purple_operator"
+
+"function" = "blue_bright"
+"function.builtin" = "blue_bright"
+"function.method" = "blue_bright"
+"function.macro" = "blue_bright"
+"function.special" = "blue_bright"
+
+"tag" = "purple"
+"tag.builtin" = "purple"
+
+"namespace" = "purple"
+
+"markup" = "fg_primary"
+"markup.heading" = "blue_bright"
+"markup.heading.marker" = "purple_bright"
+"markup.list" = "purple_bright"
+"markup.list.numbered" = "purple_bright"
+"markup.list.unnumbered" = "purple_bright"
+"markup.bold" = { fg = "orange", modifiers = ["bold"] }
+"markup.italic" = { fg = "orange", modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link" = "cyan_link"
+"markup.link.url" = { fg = "cyan_link", modifiers = ["underlined"] }
+"markup.link.label" = "cyan_link"
+"markup.link.text" = "cyan_link"
+"markup.quote" = "green"
+"markup.raw" = "green"
+"markup.raw.inline" = "green"
+"markup.raw.block" = "green"
+
+# Special
+"special" = "cyan_bright"
+"attribute" = "cyan_bright"
+
+# Git gutter
+"diff.plus.gutter" = "green"
+"diff.minus.gutter" = "red"
+"diff.delta.gutter" = "yellow"
+
+[palette]
+# Base colors
+bg_primary = "#232136"
+bg_secondary = "#191726"
+bg_tertiary = "#2d2a45"
+bg_selection = "#29394e"
+bg_element = "#63CDCF"
+# bg_selection = "#29394e"
+
+fg_primary = "#e0def4"
+fg_secondary = "#6e6a86"
+fg_editor = "#CDCECF"
+fg_variable = "#D6D6D7"
+
+# Syntax colors
+red = "#eb6f92"
+green = "#a3be8c"
+yellow = "#f6c177"
+blue = "#569fba"
+blue_bright = "#86ABDC"
+magenta = "#c4a7e7"
+cyan = "#9ccfd8"
+cyan_bright = "#9EFFFF"
+purple = "#BAA1E2"
+purple_bright = "#FB94FF"
+purple_operator = "#9D79D6"
+orange = "#F4A261"
+gray = "#AEAFB0"
+gray_comment = "#526176"
+gray_hint = "#969696"
+cyan_link = "#7AD4D6"

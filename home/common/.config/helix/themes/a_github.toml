@@ -1,0 +1,6 @@
+# Minimal test theme
+inherits = "github_dark"
+
+# Override just the bufferline
+"ui.bufferline" = { fg = "fg.subtle", bg = "canvas.default" }
+"ui.bufferline.active" = { fg = "fg.default", bg = "canvas.subtle" }

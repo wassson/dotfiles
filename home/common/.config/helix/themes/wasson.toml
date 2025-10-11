@@ -1,0 +1,9 @@
+name = "wasson"
+inherits = "rose_pine_moon"
+
+"string.special.symbol" = "purple"
+"tag" = "red"
+
+[palette]
+purple = "#C4A7E5"
+red = "#97495F"

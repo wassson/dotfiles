@@ -1,0 +1,170 @@
+# Carbonfox theme for Helix
+# Converted from Zed carbonfox.json theme
+
+# UI Elements
+"ui.background" = { bg = "base" }
+"ui.background.separator" = { bg = "base" }
+
+"ui.cursor" = { fg = "text", bg = "highlight_high" }
+"ui.cursor.match" = { fg = "text", bg = "highlight_med" }
+"ui.cursor.primary" = { fg = "text", bg = "muted" }
+
+"ui.linenr" = { fg = "muted" }
+"ui.linenr.selected" = { fg = "text" }
+
+"ui.bufferline" = { fg = "muted", bg = "surface" }
+"ui.bufferline.active" = { fg = "text", bg = "overlay" }
+"ui.statusline" = { fg = "subtle", bg = "surface" }
+"ui.statusline.inactive" = { fg = "muted", bg = "surface" }
+"ui.statusline.normal" = { fg = "cyan", bg = "surface" }
+"ui.statusline.insert" = { fg = "green", bg = "surface" }
+"ui.statusline.select" = { fg = "orange", bg = "surface" }
+
+"ui.popup" = { bg = "surface" }
+"ui.popup.info" = { bg = "surface" }
+
+"ui.window" = { fg = "overlay", bg = "surface" }
+"ui.help" = { fg = "subtle", bg = "surface" }
+
+"ui.text" = { fg = "text" }
+"ui.text.focus" = { bg = "highlight_med" }
+"ui.text.info" = { fg = "subtle" }
+"ui.text.directory" = { fg = "blue" }
+
+"ui.virtual.jump-label" = { fg = "red", modifiers = ["bold"] }
+"ui.virtual.ruler" = { bg = "overlay" }
+"ui.virtual.whitespace" = { fg = "highlight_high" }
+"ui.virtual.indent-guide" = { fg = "overlay" }
+"ui.virtual.inlay-hint" = { fg = "subtle" }
+
+"ui.menu" = { fg = "subtle", bg = "surface" }
+"ui.menu.selected" = { fg = "text", bg = "highlight_med" }
+"ui.menu.scroll" = { fg = "muted", bg = "highlight_med" }
+
+"ui.selection" = { bg = "#29394e" }
+"ui.selection.primary" = { bg = "#29394e" }
+
+"ui.cursorline.primary" = { bg = "highlight_med" }
+"ui.cursorline.secondary" = { bg = "base" }
+
+# Diagnostics
+"warning" = "magenta_dim"
+"error" = "red"
+"info" = "blue"
+"hint" = "subtle"
+"debug" = "magenta"
+
+"diagnostic" = { underline = { color = "subtle", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "subtle", style = "curl" } }
+"diagnostic.info" = { underline = { color = "blue", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "magenta_dim", style = "curl" } }
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+# Syntax highlighting
+"special" = "magenta"
+
+"attribute" = "purple"
+
+"type" = "orange"
+"type.builtin" = "orange"
+
+"constructor" = "purple"
+
+"constant" = "orange"
+"constant.builtin" = "orange"
+"constant.builtin.boolean" = "orange"
+"constant.character" = "orange"
+"constant.character.escape" = "green"
+"constant.numeric" = "orange"
+
+"string" = "green"
+"string.escape" = "green"
+"string.regex" = "green"
+"string.special" = "green"
+"string.special.symbol" = "green"
+
+"comment" = { fg = "comment", modifiers = ["italic"] }
+
+"variable" = "text"
+"variable.builtin" = "text"
+"variable.parameter" = "text"
+"variable.other.member" = "cyan"
+
+"label" = "purple"
+
+"punctuation" = "punctuation"
+"punctuation.delimiter" = "punctuation"
+"punctuation.bracket" = "punctuation"
+"punctuation.special" = "punctuation"
+
+"keyword" = "magenta"
+"keyword.operator" = "operator"
+
+"operator" = "operator"
+
+"function" = "blue"
+"function.builtin" = "blue"
+
+"tag" = "purple"
+
+"namespace" = "text"
+
+# Markup
+"markup.heading.marker" = "muted"
+"markup.heading" = { fg = "purple", modifiers = ["bold"] }
+"markup.heading.1" = { fg = "purple", modifiers = ["bold"] }
+"markup.heading.2" = { fg = "blue", modifiers = ["bold"] }
+"markup.heading.3" = { fg = "green", modifiers = ["bold"] }
+"markup.heading.4" = { fg = "orange", modifiers = ["bold"] }
+"markup.heading.5" = { fg = "magenta", modifiers = ["bold"] }
+"markup.heading.6" = { fg = "cyan", modifiers = ["bold"] }
+"markup.list" = "muted"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link" = "blue"
+"markup.link.url" = { fg = "blue", underline = { color = "blue", style = "line" } }
+"markup.link.label" = "subtle"
+"markup.link.text" = "text"
+"markup.quote" = "subtle"
+"markup.raw" = "subtle"
+
+# Diff
+"diff" = "overlay"
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "blue"
+
+[palette]
+# Background colors
+base = "#161616"
+surface = "#0c0c0c"
+overlay = "#252525"
+
+# Text colors
+text = "#f2f4f8"
+subtle = "#CDCECF"
+muted = "#7b7c7e"
+
+# Highlight colors
+highlight_low = "#29394e75"
+highlight_med = "#29394e"
+highlight_high = "#415166"
+
+# Syntax colors
+comment = "#526176"
+punctuation = "#AEAFB0"
+operator = "#9D79D6"
+
+# Main colors
+red = "#ee5396"
+green = "#3ddbd9"
+yellow = "#be95ff"
+blue = "#78a9ff"
+magenta = "#FB94FF"
+magenta_dim = "#be95ff88"
+cyan = "#33b1ff"
+orange = "#F4A261"
+purple = "#BAA1E2"
