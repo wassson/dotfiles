@@ -3,11 +3,11 @@
 # theme = "wasson"
 # theme = "rose_pine"
 # theme = "rose_pine_moon"
-theme = "gruvbox_dark_hard"
+# theme = "gruvbox_dark_hard"
 # theme = "rpm"
 # theme = "jetbrains"
 # theme = "kaolin-dark"
-# theme = "duskfox"
+theme = "duskfox"
 # theme = "terafox"
 
 [editor.gutters]

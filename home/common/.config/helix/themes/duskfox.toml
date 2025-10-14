@@ -7,19 +7,13 @@ name = "duskfox"
 # Converted from Zed theme
 
 # UI colors
-"ui.background" = "bg_primary"
+"ui.background" = { bg = "bg_primary" }
 "ui.background.separator" = "bg_tertiary"
-"ui.cursor" = "fg_primary"
-"ui.cursor.normal" = "fg_primary"
-"ui.cursor.insert" = "fg_primary"
-"ui.cursor.select" = "fg_primary"
-"ui.cursor.match" = "bg_element"
-"ui.cursor.primary" = "fg_primary"
-"ui.cursor.secondary" = "fg_secondary"
-"ui.cursorline.primary" = "bg_selection"
+"ui.cursor" = { fg = "bg_primary", bg = "cursor" }
+"ui.cursorline.primary" = { bg = "bg_current_line" }
 "ui.cursorline.secondary" = "bg_selection"
 "ui.selection" = "bg_selection"
-"ui.selection.primary" = "bg_selection"
+"ui.selection.primary" = { bg = "bg_selection" }
 "ui.linenr" = "fg_secondary"
 "ui.linenr.selected" = "fg_editor"
 "ui.statusline" = { fg = "fg_primary", bg = "bg_secondary" }
@@ -165,9 +159,10 @@ name = "duskfox"
 bg_primary = "#232136"
 bg_secondary = "#191726"
 bg_tertiary = "#2d2a45"
-bg_selection = "#29394e"
+bg_selection = "#0D2847"
 bg_element = "#63CDCF"
-# bg_selection = "#29394e"
+bg_current_line = "#29394E"
+cursor = "#0090FF"
 
 fg_primary = "#e0def4"
 fg_secondary = "#6e6a86"
