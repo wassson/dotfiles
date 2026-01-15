@@ -28,18 +28,11 @@ adjust-cell-width = 3%
 # background-blur = macos-glass-regular
 #font-family = JetBrainsMono NFM Bold
 font-family = "Zed Mono Regular"
-font-size = 13
+# font-size = 13.5 
 font-thicken = true
 font-thicken-strength = 20
 
 gtk-tabs-location = bottom
-
-# MacOS
-macos-icon = custom-style
-macos-icon-ghost-color = ffffff
-macos-icon-screen-color = 1C2021
-macos-titlebar-proxy-icon = hidden
-macos-titlebar-style = tabs
 
 # mouse
 mouse-scroll-multiplier = 2
@@ -48,7 +41,6 @@ mouse-hide-while-typing = true
 # cursor
 cursor-style = bar
 
-quick-terminal-position = bottom
 shell-integration = zsh
 # window-colorspace = "display-p3"
 # window-decoration = false
@@ -56,22 +48,26 @@ window-padding-balance = true
 window-padding-color = extend-always
 window-save-state = always
 
-# keybinds
-keybind = super+shift+o=next_tab
-keybind = super+shift+u=previous_tab
-keybind = global:cmd+grave_accent=toggle_quick_terminal
+# ===== Keybinds =====
+# Tab navigation
+# keybind = ctrl+shift+n=next_tab
+# keybind = ctrl+shift+p=previous_tab
+# keybind = ctrl+shift+t=new_tab
 
-keybind = super+shift+j=new_split:down
-keybind = super+shift+k=new_split:up
-keybind = super+shift+h=new_split:left
-keybind = super+shift+l=new_split:right
+# Split creation (alt+shift)
+keybind = alt+shift+j=new_split:down
+keybind = alt+shift+k=new_split:up
+keybind = alt+shift+h=new_split:left
+keybind = alt+shift+l=new_split:right
 
+# Split navigation (ctrl+shift)
 keybind = ctrl+shift+j=goto_split:down
 keybind = ctrl+shift+k=goto_split:up
 keybind = ctrl+shift+h=goto_split:left
 keybind = ctrl+shift+l=goto_split:right
 
-keybind = super+right=resize_split:right,10
-keybind = super+left=resize_split:left,10
-keybind = super+up=resize_split:up,10
-keybind = super+down=resize_split:down,10
+# Split resizing (alt+arrows)
+keybind = alt+right=resize_split:right,10
+keybind = alt+left=resize_split:left,10
+keybind = alt+up=resize_split:up,10
+keybind = alt+down=resize_split:down,10

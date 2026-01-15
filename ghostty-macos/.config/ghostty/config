@@ -1,0 +1,4 @@
+# Include shared configuration
+config-file = ../../../common/.config/ghostty/config
+
+# macOS-specific overrides below

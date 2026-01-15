@@ -1,0 +1,11 @@
+# Include shared configuration
+config-file = ../../../ghostty-common/.config/ghostty/config
+
+# Linux-specific overrides below
+font-size = 12
+
+# keybinds
+keybind = super+shift+o=next_tab
+keybind = super+shift+u=previous_tab
+keybind = ctrl+shift+t=new_tab
+keybind = super+w=close_surface
