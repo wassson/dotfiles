@@ -9,10 +9,18 @@ inherits = "jetbrains_dark"
 
 attribute = "yellow"
 tag = "teal"
-type = "yellow"
+type = "teal"
 function = "blue"
+constructor = "whte"
+"variable.other" = "teal"
+# "keyword.storage.type" = "yellow"
+
+# tabs
+"ui.bufferline" = { fg = "blue196", bg = "blue34" }
+"ui.bufferline.active" = { fg = "teal" }
 
 [palette]
 blue = "#57A8F5"
 teal = "#70AFBD"
-yellow = "#FFC66D"
+yellow = "#FFC97F"
+white = "#FFFFFF"

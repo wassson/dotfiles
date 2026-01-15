@@ -7,28 +7,42 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-thinking-latest",
+    },
+    "model_parameters": [],
+  },
+  "icon_theme": "Material Icon Theme",
+  "buffer_line_height": "comfortable",
+  "base_keymap": "JetBrains",
   "edit_predictions": {
-    "mode": "subtle"
+    "mode": "subtle",
   },
   "ui_font_size": 14,
   "ui_font_family": "JetBrainsMono Nerd Font Mono",
   "toolbar": {
     "breadcrumbs": false,
-    "quick_actions": false
+    "quick_actions": false,
   },
   "buffer_font_size": 13.5,
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_family": ".ZedMono",
   "cursor_blink": false,
   "indent_guides": {
-    "enabled": false
+    "enabled": false,
   },
   "project_panel": {
-    "dock": "right"
+    "dock": "right",
   },
+  // "terminal": {
+  //   "dock": "right",
+  // },
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Duskfox"
+    "dark": "Carbonfox",
   },
-  "vim_mode": true
+  "vim_mode": true,
 }

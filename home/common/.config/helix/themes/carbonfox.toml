@@ -2,7 +2,8 @@
 # Converted from Zed carbonfox.json theme
 
 # UI Elements
-"ui.background" = { bg = "base" }
+# "ui.background" = { bg = "base" }
+"ui.background" = {}
 "ui.background.separator" = { bg = "base" }
 
 "ui.cursor" = { fg = "text", bg = "highlight_high" }
@@ -12,7 +13,8 @@
 "ui.linenr" = { fg = "muted" }
 "ui.linenr.selected" = { fg = "text" }
 
-"ui.bufferline" = { fg = "muted", bg = "surface" }
+# "ui.bufferline" = { fg = "muted", bg = "surface" }
+"ui.bufferline" = {}
 "ui.bufferline.active" = { fg = "text", bg = "overlay" }
 "ui.statusline" = { fg = "subtle", bg = "surface" }
 "ui.statusline.inactive" = { fg = "muted", bg = "surface" }

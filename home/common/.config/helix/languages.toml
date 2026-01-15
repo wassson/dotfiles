@@ -2,7 +2,7 @@
 name = "ruby"
 formatter = { command = "bundle", args = ["exec", "stree", "format"] }
 language-servers = [
-  { name = "ruby-lsp" },
+  { name = "ruby-lsp", except-features = [] },  # Use all features including completion
   { name = "rubocop", only-features = [
     "diagnostics",
   ] },
@@ -13,6 +13,12 @@ auto-pairs = { "(" = ")", "[" = "]", "{" = "}", "|" = "|" }
 [language-server.ruby-lsp]
 command = "ruby-lsp"
 
+[language-server.ruby-lsp.config]
+# Enable all completion features
+completion = true
+diagnostics = true
+formatting = true
+
 [language-server.rubocop]
 command = "bundle"
 # args = ["exec", "rubocop"]
@@ -21,7 +27,7 @@ args = ["exec", "rubocop", "--lsp"]
 [[language]]
 name = "erb"
 file-types = ["erb", "html"]
-language-servers = ["tailwindcss-ls"]
+language-servers = ["emmet-ls", "tailwindcss-ls"]
 
 [language.auto-pairs]
 '<' = '>'
@@ -54,6 +60,7 @@ command = "gopls"
 name = "javascript"
 auto-format = false
 file-types = ["js", "jsx"]
+language-servers = ["typescript-language-server", "tailwindcss-ls", "emmet-ls"]
 
 [[language]]
 name = "typescript"
@@ -62,6 +69,7 @@ formatter = { command = '/Users/austinwasson/.bun/bin/prettier', args = [
   "typescript",
 ] }
 file-types = ["ts", "tsx"]
+language-servers = ["typescript-language-server", "tailwindcss-ls", "emmet-ls"]
 auto-format = true
 
 [[language]]
@@ -76,7 +84,7 @@ block-comment-tokens = [{ start = "{/*", end = "*/}" }]
 auto-format = true
 
 [language-server.typescript-language-server]
-command = "/Users/austinwasson/.bun/bin/typescript-language-server"
+command = "typescript-language-server"
 args = ["--stdio"]
 
 [language-server.tailwindcss-ls]
@@ -156,6 +164,7 @@ auto-format = true
 comment-token = "//"
 indent = { tab-width = 4, unit = "\t" }
 language-servers = ["ols"]
+formatter = { command = "odinfmt", args = ["-stdin"] }
 
 [language-server.ols]
 command = "ols"

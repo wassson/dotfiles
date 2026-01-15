@@ -1,12 +1,14 @@
-# command = /usr/local/bin/fish --login --interactive
-
 # themes
 # theme = Gruvbox Dark Hard
 # background = 1C2021
-background = 131315
+# background = 131315
+# background = 1E1F22
+
+theme = Carbonfox
+background = 161616
 
 # terafox
-theme = Terafox
+# theme = Terafox
 #background = 0F1C1E
 
 # rose-pine
@@ -19,10 +21,11 @@ theme = Terafox
 # theme = GitHub Dark
 
 # window
-window-theme = ghostty
-adjust-cell-height = 16%
+# window-theme = ghostty
+adjust-cell-height = 30%
 adjust-cell-width = 3%
-# background-opacity = 0.99
+# background-opacity = 0.98
+# background-blur = macos-glass-regular
 #font-family = JetBrainsMono NFM Bold
 font-family = "Zed Mono Regular"
 font-size = 13
@@ -47,9 +50,10 @@ cursor-style = bar
 
 quick-terminal-position = bottom
 shell-integration = zsh
-window-colorspace = "display-p3"
+# window-colorspace = "display-p3"
 # window-decoration = false
 window-padding-balance = true
+window-padding-color = extend-always
 window-save-state = always
 
 # keybinds
