@@ -84,6 +84,9 @@ export BUN_INSTALL="$HOME/.bun"
 # Go
 [ -d "$HOME/go/bin" ] && export PATH="$HOME/go/bin:$PATH"
 
+# Ruby gems
+[ -d "$HOME/.local/share/gem/ruby/3.4.0/bin" ] && export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+
 # NVM (if used)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
@@ -104,5 +107,11 @@ alias cre="cargo run --example"
 alias cwr="cargo watch -x run"
 cwe() { cargo watch -x "run --example $1" }
 
+# serviceup
+alias spg="docker exec -it serviceup_server psql -U postgres -d serviceup"
+
 # odin
-alias runwp="odin build . -debug && ./wellplayed"
+alias arc="odin build . -debug && ./arc"
+
+# bun completions
+[ -s "/home/aus/.bun/_bun" ] && source "/home/aus/.bun/_bun"

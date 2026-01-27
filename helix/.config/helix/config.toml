@@ -55,7 +55,7 @@ insert = "bar"
 [editor.lsp]
 auto-signature-help = false
 display-messages = true
-# display-inlay-hints = true
+display-inlay-hints = true
 
 # [editor.inline-diagnostics]
 # cursor-line = "hint"

@@ -37,16 +37,16 @@
 "ui.virtual.ruler" = { bg = "overlay" }
 "ui.virtual.whitespace" = { fg = "highlight_high" }
 "ui.virtual.indent-guide" = { fg = "overlay" }
-"ui.virtual.inlay-hint" = { fg = "subtle" }
+"ui.virtual.inlay-hint" = { fg = "inlay" }
 
 "ui.menu" = { fg = "subtle", bg = "surface" }
 "ui.menu.selected" = { fg = "text", bg = "highlight_med" }
 "ui.menu.scroll" = { fg = "muted", bg = "highlight_med" }
 
-"ui.selection" = { bg = "#29394e" }
-"ui.selection.primary" = { bg = "#29394e" }
+"ui.selection" = { bg = "#415166" }
+"ui.selection.primary" = { bg = "#415166" }
 
-"ui.cursorline.primary" = { bg = "highlight_med" }
+"ui.cursorline.primary" = { bg = "#29394e" }
 "ui.cursorline.secondary" = { bg = "base" }
 
 # Diagnostics
@@ -148,6 +148,7 @@ overlay = "#252525"
 # Text colors
 text = "#f2f4f8"
 subtle = "#CDCECF"
+inlay = "#535475"
 muted = "#7b7c7e"
 
 # Highlight colors

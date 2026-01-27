@@ -87,6 +87,24 @@ auto-format = true
 command = "typescript-language-server"
 args = ["--stdio"]
 
+[language-server.typescript-language-server.config.typescript.inlayHints]
+includeInlayParameterNameHints = "none"
+includeInlayParameterNameHintsWhenArgumentMatchesName = false
+includeInlayFunctionParameterTypeHints = false
+includeInlayVariableTypeHints = false
+includeInlayPropertyDeclarationTypeHints = false
+includeInlayFunctionLikeReturnTypeHints = false
+includeInlayEnumMemberValueHints = false
+
+[language-server.typescript-language-server.config.javascript.inlayHints]
+includeInlayParameterNameHints = "none"
+includeInlayParameterNameHintsWhenArgumentMatchesName = false
+includeInlayFunctionParameterTypeHints = false
+includeInlayVariableTypeHints = false
+includeInlayPropertyDeclarationTypeHints = false
+includeInlayFunctionLikeReturnTypeHints = false
+includeInlayEnumMemberValueHints = false
+
 [language-server.tailwindcss-ls]
 config = { userLanguages = { rust = "html", "*.rs" = "html", typescript = "html", "*.tsx" = "html" } }
 
@@ -110,7 +128,7 @@ auto-format = true
 comment-token = "//"
 indent = { tab-width = 2, unit = " " }
 injection-regex = "svelte"
-language-servers = ["svelteserver"]
+language-servers = ["svelteserver", "emmet-ls"]
 
 [language-server.svelteserver]
 command = "svelteserver"
@@ -128,11 +146,17 @@ language-servers = ["rust-analyzer"]
 command = "rust-analyzer"
 
 [language-server.rust-analyzer.config]
-checkOnSave.command = "clippy"
+checkOnSave = { command = "clippy" }
 cargo.buildScripts.enable = true
 procMacro.enable = true
-rust-analyzer.cachePriming.enable = false
-rust-analyzer.diagnostics.experimental.enable = false
+cachePriming.enable = false
+diagnostics.experimental.enable = false
+
+[language-server.rust-analyzer.config.inlayHints]
+typeHints.enable = false
+parameterHints.enable = false
+chainingHints.enable = false
+closingBraceHints.enable = false
 
 [[language]]
 name = "zig"
@@ -142,18 +166,24 @@ roots = ["build.zig", "build.zig.zon"]
 auto-format = true
 language-servers = ["zls"]
 
-# [language-server.zls]
-# command = "zls"
+[language-server.zls]
+command = "zls"
 
-# [language-server.zls.config]
-# zig_exe_path = "/Users/austinwasson/.local/share/mise/installs/zig/0.14.1/zig"
-# enable_snippets = true
-# enable_argument_placeholders = true
-# enable_build_on_save = true
-# build_on_save_step = "check"
-# warn_style = true
-# semantic_tokens = "full"
-# enable_autofix = false
+[language-server.zls.config]
+enable_snippets = true
+enable_argument_placeholders = true
+warn_style = true
+semantic_tokens = "full"
+inlay_hints_show_variable_type_hints = true
+inlay_hints_show_parameter_name = true
+
+[language-server.ols]
+command = "odinls"
+args = []
+
+[language-server.ols.config]
+inlay_hints = true
+inlay_hints_same_line = false
 
 [[language]]
 name = "odin"
@@ -161,13 +191,7 @@ scope = "source.odin"
 file-types = ["odin"]
 roots = ["ols.json"]
 auto-format = true
-comment-token = "//"
-indent = { tab-width = 4, unit = "\t" }
 language-servers = ["ols"]
-formatter = { command = "odinfmt", args = ["-stdin"] }
-
-[language-server.ols]
-command = "ols"
 
 [[language]]
 name = "wgsl"
