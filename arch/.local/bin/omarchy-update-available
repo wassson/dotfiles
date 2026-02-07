@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if ! command -v checkupdates >/dev/null 2>&1; then
+  printf "Updates: unknown\n"
+  exit 0
+fi
+
+count="$(checkupdates 2>/dev/null | wc -l)"
+if [[ "$count" -gt 0 ]]; then
+  printf "Updates: %s\n" "$count"
+  exit 0
+fi
+
+printf "System up to date\n"
+exit 1

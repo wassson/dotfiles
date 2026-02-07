@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+url="$1"
+shift || true
+
+for browser_exec in chromium chromium-browser; do
+  if command -v "$browser_exec" >/dev/null 2>&1; then
+    exec setsid uwsm-app -- "$browser_exec" --new-window --app="$url" "$@"
+  fi
+done
+
+notify-send "Chromium is required for web app keybinds" -u critical -t 3000
+exit 1

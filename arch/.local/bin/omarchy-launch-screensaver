@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if ! command -v tte >/dev/null 2>&1; then
+  exit 1
+fi
+
+if ! command -v ghostty >/dev/null 2>&1; then
+  notify-send "Ghostty is required for screensaver"
+  exit 1
+fi
+
+pgrep -f org.omarchy.screensaver >/dev/null 2>&1 && exit 0
+
+walker -q >/dev/null 2>&1 || true
+
+focused="$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')"
+
+for monitor in $(hyprctl monitors -j | jq -r '.[] | .name'); do
+  hyprctl dispatch focusmonitor "$monitor"
+  hyprctl dispatch exec -- ghostty --class=org.omarchy.screensaver --font-size=18 -e omarchy-cmd-screensaver
+done
+
+hyprctl dispatch focusmonitor "$focused"

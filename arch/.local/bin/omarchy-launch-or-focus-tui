@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if (($# == 0)); then
+  printf "Usage: omarchy-launch-or-focus-tui [command] [args...]\n" >&2
+  exit 1
+fi
+
+cmd="$1"
+shift || true
+
+exec omarchy-launch-or-focus "$cmd" "omarchy-launch-tui $cmd $*"

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if (($# == 0)); then
+  printf "Usage: omarchy-launch-or-focus-webapp [window-pattern] [url-and-flags...]\n" >&2
+  exit 1
+fi
+
+window_pattern="$1"
+shift
+launch_command="omarchy-launch-webapp $*"
+
+exec omarchy-launch-or-focus "$window_pattern" "$launch_command"

@@ -1,0 +1,5 @@
+include "%H/.config/arch-default/xcompose"
+
+# Identification
+<Multi_key> <space> <n> : "Austin Wasson"
+<Multi_key> <space> <e> : "austinpwasson@gmail.com"

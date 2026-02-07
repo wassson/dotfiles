@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if (($# == 0)); then
+  printf "Usage: omarchy-launch-or-focus [window-pattern] [launch-command]\n" >&2
+  exit 1
+fi
+
+window_pattern="$1"
+launch_command="${2:-"uwsm-app -- $window_pattern"}"
+
+window_address="$({ hyprctl clients -j 2>/dev/null || true; } | jq -r --arg p "$window_pattern" '.[] | select((.class|test("\\b" + $p + "\\b";"i")) or (.title|test("\\b" + $p + "\\b";"i"))) | .address' | head -n1)"
+
+if [[ -n "$window_address" ]]; then
+  hyprctl dispatch focuswindow "address:$window_address"
+else
+  eval exec setsid "$launch_command"
+fi

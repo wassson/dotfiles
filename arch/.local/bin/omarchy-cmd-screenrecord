@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+[[ -f ~/.config/user-dirs.dirs ]] && source ~/.config/user-dirs.dirs
+output_dir="${OMARCHY_SCREENRECORD_DIR:-${XDG_VIDEOS_DIR:-$HOME/Videos}}"
+
+if [[ ! -d "$output_dir" ]]; then
+  notify-send "Screen recording directory does not exist: $output_dir" -u critical -t 3000
+  exit 1
+fi
+
+desktop_audio="false"
+microphone_audio="false"
+webcam="false"
+webcam_device=""
+stop_recording="false"
+
+for arg in "$@"; do
+  case "$arg" in
+    --with-desktop-audio) desktop_audio="true" ;;
+    --with-microphone-audio) microphone_audio="true" ;;
+    --with-webcam) webcam="true" ;;
+    --webcam-device=*) webcam_device="${arg#*=}" ;;
+    --stop-recording) stop_recording="true" ;;
+  esac
+done
+
+toggle_indicator() { pkill -RTMIN+8 waybar >/dev/null 2>&1 || true; }
+cleanup_webcam() { pkill -f "WebcamOverlay" >/dev/null 2>&1 || true; }
+
+screenrecording_active() {
+  pgrep -f "^gpu-screen-recorder" >/dev/null 2>&1 || pgrep -f "WebcamOverlay" >/dev/null 2>&1
+}
+
+start_webcam_overlay() {
+  cleanup_webcam
+  if [[ -z "$webcam_device" ]]; then
+    webcam_device="$(v4l2-ctl --list-devices 2>/dev/null | grep -m1 "^\s*/dev/video" | tr -d '\t' || true)"
+    [[ -z "$webcam_device" ]] && return 1
+  fi
+
+  scale="$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .scale')"
+  target_width="$(awk "BEGIN {printf \"%.0f\", 360 * $scale}")"
+  ffplay -f v4l2 -framerate 30 "$webcam_device" -vf "scale=${target_width}:-1" -window_title "WebcamOverlay" -noborder -fflags nobuffer -flags low_delay -probesize 32 -analyzeduration 0 -loglevel quiet &
+  sleep 1
+}
+
+start_recording() {
+  local filename="$output_dir/screenrecording-$(date +'%Y-%m-%d_%H-%M-%S').mp4"
+  local audio_devices=""
+  local audio_args=""
+
+  [[ "$desktop_audio" == "true" ]] && audio_devices+="default_output"
+  if [[ "$microphone_audio" == "true" ]]; then
+    [[ -n "$audio_devices" ]] && audio_devices+="|"
+    audio_devices+="default_input"
+  fi
+
+  [[ -n "$audio_devices" ]] && audio_args+="-a $audio_devices"
+  gpu-screen-recorder -w portal -f 60 -fallback-cpu-encoding yes -o "$filename" $audio_args -ac aac &
+  toggle_indicator
+}
+
+stop_recording() {
+  pkill -SIGINT -f "^gpu-screen-recorder" >/dev/null 2>&1 || true
+  local count=0
+  while pgrep -f "^gpu-screen-recorder" >/dev/null 2>&1 && [[ $count -lt 50 ]]; do
+    sleep 0.1
+    count=$((count + 1))
+  done
+  if pgrep -f "^gpu-screen-recorder" >/dev/null 2>&1; then
+    pkill -9 -f "^gpu-screen-recorder" >/dev/null 2>&1 || true
+    notify-send "Screen recording error" "Recording process had to be force-killed. Video may be corrupted." -u critical -t 5000
+  else
+    notify-send "Screen recording saved to $output_dir" -t 2000
+  fi
+  cleanup_webcam
+  toggle_indicator
+}
+
+if screenrecording_active; then
+  if pgrep -f "WebcamOverlay" >/dev/null 2>&1 && ! pgrep -f "^gpu-screen-recorder" >/dev/null 2>&1; then
+    cleanup_webcam
+  else
+    stop_recording
+  fi
+elif [[ "$stop_recording" == "false" ]]; then
+  [[ "$webcam" == "true" ]] && start_webcam_overlay || true
+  start_recording || cleanup_webcam
+else
+  exit 1
+fi

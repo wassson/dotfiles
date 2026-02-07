@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+default_browser="$(xdg-settings get default-web-browser 2>/dev/null || true)"
+
+resolve_default_browser() {
+  case "$default_browser" in
+    zen*)
+      for cmd in zen zen-browser; do
+        command -v "$cmd" >/dev/null 2>&1 && { printf "%s\n" "$cmd"; return 0; }
+      done
+      ;;
+    *firefox*)
+      command -v firefox >/dev/null 2>&1 && { printf "firefox\n"; return 0; }
+      ;;
+    *librewolf*)
+      command -v librewolf >/dev/null 2>&1 && { printf "librewolf\n"; return 0; }
+      ;;
+    *mullvad*)
+      command -v mullvad-browser >/dev/null 2>&1 && { printf "mullvad-browser\n"; return 0; }
+      ;;
+    *edge*)
+      for cmd in microsoft-edge-stable microsoft-edge; do
+        command -v "$cmd" >/dev/null 2>&1 && { printf "%s\n" "$cmd"; return 0; }
+      done
+      ;;
+    *brave*)
+      for cmd in brave-browser brave-browser-stable; do
+        command -v "$cmd" >/dev/null 2>&1 && { printf "%s\n" "$cmd"; return 0; }
+      done
+      ;;
+    *chrome*)
+      for cmd in google-chrome google-chrome-stable; do
+        command -v "$cmd" >/dev/null 2>&1 && { printf "%s\n" "$cmd"; return 0; }
+      done
+      ;;
+    chromium*)
+      command -v chromium >/dev/null 2>&1 && { printf "chromium\n"; return 0; }
+      ;;
+  esac
+
+  return 1
+}
+
+if [[ "${1:-}" != "--private" ]]; then
+  if browser_cmd="$(resolve_default_browser)"; then
+    case "$browser_cmd" in
+      zen|zen-browser|firefox|librewolf|mullvad-browser)
+        exec setsid uwsm-app -- "$browser_cmd" --new-window "about:blank"
+        ;;
+      *)
+        exec setsid uwsm-app -- "$browser_cmd" --new-window "about:blank"
+        ;;
+    esac
+  fi
+
+  exec setsid uwsm-app -- xdg-open "about:blank"
+fi
+
+resolve_private_browser() {
+  case "$default_browser" in
+    *firefox*|*librewolf*|*mullvad*|*zen*)
+      for cmd in firefox librewolf mullvad-browser zen-browser zen; do
+        if command -v "$cmd" >/dev/null 2>&1; then
+          printf "%s %s\n" "$cmd" "--private-window"
+          return 0
+        fi
+      done
+      ;;
+    *edge*)
+      for cmd in microsoft-edge-stable microsoft-edge; do
+        if command -v "$cmd" >/dev/null 2>&1; then
+          printf "%s %s\n" "$cmd" "--inprivate"
+          return 0
+        fi
+      done
+      ;;
+  esac
+
+  for cmd in brave-browser brave-browser-stable google-chrome google-chrome-stable chromium vivaldi opera; do
+    if command -v "$cmd" >/dev/null 2>&1; then
+      printf "%s %s\n" "$cmd" "--incognito"
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+if browser_and_flag="$(resolve_private_browser)"; then
+  browser_cmd="${browser_and_flag%% *}"
+  private_flag="${browser_and_flag#* }"
+  exec setsid uwsm-app -- "$browser_cmd" "$private_flag"
+fi
+
+exec setsid uwsm-app -- xdg-open "about:blank"

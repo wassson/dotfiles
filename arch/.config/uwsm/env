@@ -1,0 +1,10 @@
+# Changes require a restart to take effect.
+
+# Use local command set managed in dotfiles
+export PATH=$HOME/.local/bin:$PATH
+
+# Set default terminal and editor
+source ~/.config/uwsm/default
+
+# Activate mise if present on the system
+omarchy-cmd-present mise && eval "$(mise activate bash)"

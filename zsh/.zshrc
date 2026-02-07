@@ -18,6 +18,8 @@ case "$(uname)" in
     [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
     ;;
   Linux)
+    export PATH="$HOME/.local/bin:$PATH"
+
     # Omarchy defaults (zsh-compatible parts only)
     # Aliases
     if command -v eza &> /dev/null; then

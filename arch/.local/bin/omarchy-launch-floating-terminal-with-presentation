@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cmd="$*"
+exec setsid uwsm-app -- ghostty --class=org.omarchy.terminal --title=System -e bash -lc "$cmd"

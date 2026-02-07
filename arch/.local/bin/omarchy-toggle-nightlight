@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+on_temp=4000
+off_temp=6000
+
+if ! pgrep -x hyprsunset >/dev/null 2>&1; then
+  setsid uwsm-app -- hyprsunset >/dev/null 2>&1 &
+  sleep 1
+fi
+
+current_temp="$(hyprctl hyprsunset temperature 2>/dev/null | grep -oE '[0-9]+' || true)"
+
+if [[ "$current_temp" == "$off_temp" ]]; then
+  hyprctl hyprsunset temperature "$on_temp"
+  notify-send "Nightlight screen temperature"
+else
+  hyprctl hyprsunset temperature "$off_temp"
+  notify-send "Daylight screen temperature"
+fi
+
+if grep -q "custom/nightlight" ~/.config/waybar/config.jsonc 2>/dev/null; then
+  omarchy-restart-waybar
+fi

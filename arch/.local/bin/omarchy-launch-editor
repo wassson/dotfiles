@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+editor="${EDITOR:-nvim}"
+omarchy-cmd-present "$editor" || editor="nvim"
+
+case "$editor" in
+  nvim|vim|nano|micro|hx|helix|fresh)
+    exec omarchy-launch-tui "$editor" "$@"
+    ;;
+  *)
+    exec setsid uwsm-app -- "$editor" "$@"
+    ;;
+esac
