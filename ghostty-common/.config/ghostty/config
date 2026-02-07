@@ -71,3 +71,7 @@ keybind = alt+right=resize_split:right,10
 keybind = alt+left=resize_split:left,10
 keybind = alt+up=resize_split:up,10
 keybind = alt+down=resize_split:down,10
+
+# move tabs
+keybind = ctrl+super+u=move_tab:-1
+keybind = ctrl+super+o=move_tab:1

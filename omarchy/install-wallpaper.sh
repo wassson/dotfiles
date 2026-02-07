@@ -9,7 +9,7 @@ if [ -z "$THEME_NAME" ]; then
 fi
 
 BACKGROUNDS_DIR="$HOME/.config/omarchy/backgrounds/$THEME_NAME"
-WALLPAPERS="car.jpeg knight.jpeg river.jpeg"
+WALLPAPERS="car.jpeg knight.jpeg river.jpeg once.png"
 
 mkdir -p "$BACKGROUNDS_DIR"
 

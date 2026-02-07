@@ -111,7 +111,22 @@ cwe() { cargo watch -x "run --example $1" }
 alias spg="docker exec -it serviceup_server psql -U postgres -d serviceup"
 
 # odin
-alias arc="odin build . -debug && ./arc"
+alias arc="odin build . -debug && ./arcane"
+alias od="odin run . -collection:src=src"
+oex() { odin run examples/$1 -collection:src=src }
 
 # bun completions
 [ -s "/home/aus/.bun/_bun" ] && source "/home/aus/.bun/_bun"
+
+# monitors
+brightness() { asdbctl set $1 }
+
+# power management
+alias power-status="powerprofilesctl get"
+alias power-balanced="sudo powerprofilesctl set balanced"
+alias power-performance="sudo powerprofilesctl set performance"
+alias power-saver="sudo powerprofilesctl set power-saver"
+
+# opencode
+export PATH=/home/aus/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"

@@ -199,3 +199,21 @@ language-servers = [ "wgsl-analyzer" ]
 
 [language-server.wgsl-analyzer]
 command = "wgsl-analyzer"
+
+[[language]]
+name = "c3"
+scope = "source.c3"
+file-types = ["c3", "c3i"]
+roots = ["project.json"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = "    " }
+auto-format = true
+language-servers = ["c3lsp"]
+
+[language-server.c3lsp]
+command = "/home/aus/.local/bin/c3lsp"
+
+[[grammar]]
+name = "c3"
+source = { git = "https://github.com/c3lang/tree-sitter-c3", rev = "302fab443c2237e3b8fb3e991454db0e442af130" }
